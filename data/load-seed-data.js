@@ -1,6 +1,6 @@
 const client = require('../lib/client');
 // import our seed data:
-const animals = require('./animals.js');
+const dogs = require('./dogs.js');
 const usersData = require('./users.js');
 
 run();
@@ -24,12 +24,12 @@ async function run() {
     const user = users[0].rows[0];
 
     await Promise.all(
-      animals.map(animal => {
+      dogs.map(dog => {
         return client.query(`
-                    INSERT INTO animals (name, cool_factor, owner_id)
+                    INSERT INTO animals (breed, awesomeness_score, owner_id)
                     VALUES ($1, $2, $3);
                 `,
-        [animal.name, animal.cool_factor, user.id]);
+        [dog.breed, dog.awesomeness_score, user.id]);
       })
     );
     
