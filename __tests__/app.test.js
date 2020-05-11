@@ -10,6 +10,7 @@ describe('app routes', () => {
 
   beforeEach(() => {
     // TODO: ADD DROP SETUP DB SCRIPT
+    // execSync('npm run setup-db');
   });
 
   afterAll(() => {
