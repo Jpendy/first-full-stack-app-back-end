@@ -32,10 +32,10 @@ app.get('/dogs/:id', async(req, res) => {
 app.post('/dogs/', async(req, res) => {
 
   const data = await client.query(
-    `INSERT INTO dogs (breed, awesomeness_score, owner_id)
-     values ($1, $2, $3)
+    `INSERT INTO dogs (breed, awesomeness_score, owner_id, have_owned)
+     values ($1, $2, $3, $4)
      returning *; `,
-    [req.body.breed, req.body.awesomeness_score, 1]
+    [req.body.breed, req.body.awesomeness_score, 1, req.body.have_owned]
   );
 
   res.json(data.rows[0]);

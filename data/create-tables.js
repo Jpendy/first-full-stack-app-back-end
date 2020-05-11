@@ -20,6 +20,7 @@ async function run() {
                     id SERIAL PRIMARY KEY NOT NULL,
                     breed VARCHAR(512) NOT NULL,
                     awesomeness_score INTEGER NOT NULL,
+                    have_owned BOOLEAN NOT NULL
                     owner_id INTEGER NOT NULL REFERENCES users(id)
             );
         `);
