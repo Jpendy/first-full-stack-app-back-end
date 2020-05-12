@@ -50,19 +50,25 @@ app.post('/dogs/', async(req, res) => {
   res.json(data.rows[0]);
 });
 
-// app.delete('/dogs/:id'), async(req, res) => {
+app.delete('/dogs/:id', async(req, res) => {
 
-//   const id = req.params.id;
-//   const data = await client.query(`
-//     DELETE FROM dogs
-//     WHERE id = $1
-//     DELETE FROM dogs
-//     WHERE ID = $1
-//     returning *;
-//   `, [id]);
+  const id = req.params.id;
+  console.log(id);
+  try {
+    const data = await client.query(`
+  DELETE FROM dogs
+  WHERE id = $1
+  RETURNING *;
+`, [id]);
 
-//   res.json(data.rows[0]);
-// };
+    res.json(data.rows[0]); 
+  }
+  catch(e) {
+    console.error(e);
+    res.json(e);
+  }
+  
+});
 
 
 app.listen(PORT, () => {
