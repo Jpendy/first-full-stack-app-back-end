@@ -24,7 +24,7 @@ app.get('/dogs', async(req, res) => {
 app.get('/dogs/:id', async(req, res) => {
   const id = req.params.id;
   const data = await client.query(
-    `SELECT dogs.breed, dogs.awesomeness_score, dogs.have_owned, neuroticism.neuroticism_level
+    `SELECT dogs.id, dogs.breed, dogs.awesomeness_score, dogs.have_owned, neuroticism.neuroticism_level
     FROM dogs
     JOIN neuroticism
     ON neuroticism.id = dogs.neuroticism_level
