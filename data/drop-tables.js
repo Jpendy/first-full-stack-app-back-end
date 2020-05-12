@@ -9,7 +9,8 @@ async function run() {
     
     await client.query(`
             DROP TABLE IF EXISTS users CASCADE;
-            DROP TABLE IF EXISTS animals;
+            DROP TABLE IF EXISTS neuroticism CASCADE;
+            DROP TABLE IF EXISTS dogs;
         `);
 
     console.log('drop tables complete');
