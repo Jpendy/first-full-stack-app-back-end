@@ -48,8 +48,21 @@ app.post('/dogs/', async(req, res) => {
   );
 
   res.json(data.rows[0]);
-
 });
+
+// app.delete('/dogs/:id'), async(req, res) => {
+
+//   const id = req.params.id;
+//   const data = await client.query(`
+//     DELETE FROM dogs
+//     WHERE id = $1
+//     DELETE FROM dogs
+//     WHERE ID = $1
+//     returning *;
+//   `, [id]);
+
+//   res.json(data.rows[0]);
+// };
 
 
 app.listen(PORT, () => {
