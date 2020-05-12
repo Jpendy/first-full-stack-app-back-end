@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 7890;
 //get all dogs for full list of dogs page
 app.get('/dogs', async(req, res) => {
   const data = await client.query(
-    `SELECT dogs.breed, dogs.awesomeness_score, dogs.have_owned, neuroticism.neuroticism_level
+    `SELECT dogs.id, dogs.breed, dogs.awesomeness_score, dogs.have_owned, neuroticism.neuroticism_level
   FROM dogs
   JOIN neuroticism
   ON neuroticism.id = dogs.neuroticism_level`); 
